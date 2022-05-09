@@ -1,0 +1,137 @@
+@use '../breakpoint' as s;
+
+/* ------------- mv ----------------*/
+.mv {
+  width: 100%;
+  height: calc(100vh - 60px);
+  // border: 1px solid blue;
+  padding: 50px;
+  margin-bottom: 80px;
+
+
+  .scroll-prompt-box {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 15%;
+    animation: arrowmove 3s ease-in-out infinite;
+
+    @include s.mq(sm){
+      width: 30%;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+
+    .scroll-img {
+      width: 100%;
+      // animation: arrowmove 3s ease-in-out infinite;
+    }
+
+    @keyframes arrowmove {
+      0% {
+        transform: translateY(0);
+      }  
+      50% {
+        transform: translateY(10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .scroll-txt {
+      font-family: 'karakaze';
+      font-weight: bold;
+      font-size: 3.2rem;
+      color: orange;
+      position: absolute;
+      z-index: 1;
+      top: 20%;
+      left: -10%;
+      transform: rotate(-50%, -50%);
+      text-orientation: sideways;
+      -ms-writing-mode: tb-rl;
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+    }
+  }
+
+
+
+  &__wrapper {
+    // width: 100%;
+    height: 100%;
+    position: relative;
+
+
+
+    &_copy-wrapper {
+      height: 100%;
+      position: relative;
+      margin: 0 auto;
+      // border: 1px solid red;
+
+      @include s.mq(){
+        width: 100%;
+      }
+
+
+      svg {
+        height: 100%;
+        display: block;
+        // border: 1px solid #333;
+        margin: 0 auto;
+
+        @include s.mq(){
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+
+      &_txt {
+        // font-family: 'Oranienbaum';
+        font-family: 'Pacifico', cursive;
+        position: absolute;
+        font-size: 4.0rem;
+        // font-weight: bold;
+        bottom: 20%;
+        left: 8%;
+
+        &_mark-up {
+          position: absolute;
+          // border: 1px solid #333;
+          left: 110%;
+          transform: translate(0, 0);
+          opacity: 0;
+
+          &.orange {
+            color: orange;
+          }
+          &.blue {
+            color: blue;
+          }
+          &.red{
+            color: red;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+#svg-animation-pc {
+  display: block;
+  @include s.mq(sm){
+    display: none;
+  }
+}
+
+#svg-animation-md {
+  display: none;
+  @include s.mq(sm){
+    display: block;
+  }
+}

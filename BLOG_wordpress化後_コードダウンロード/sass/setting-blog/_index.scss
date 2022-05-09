@@ -1,0 +1,17 @@
+// @use 'setting/all';
+// @use 'setting/header';
+// @use 'setting/mv';
+// @use 'setting/vision';
+// @use 'setting/about';
+// @use 'setting/service';
+// @use 'setting/work';
+// @use 'setting/contact';
+// @use 'setting/footer';
+
+@forward 'all';
+@forward 'header';
+@forward 'mv';
+@forward 'main';
+@forward 'sidebar';
+@forward 'footer';
+@forward '../breakpoint';

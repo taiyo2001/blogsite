@@ -1,0 +1,91 @@
+@use '../breakpoint' as s;
+
+
+/* ------------- blog ----------------*/
+.Blog {
+    width: 100%;
+    height: 450px;
+    position: relative;
+    margin: 80px 0;
+
+    @include s.mq(){
+        height: 700px;
+    }
+
+    &__content-left {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 55%;
+        height: 90%;
+        z-index: 1;
+        // aspect-ratio: 5/3;
+        background: url("../img/blogphoto.png") no-repeat center / cover;
+
+        @include s.mq(){
+            height: 60%;
+            width: 90%;
+        }
+
+        @include s.mq(sm){
+            height: 65%;
+            background: url("../img/blogphoto-sm.jpg") no-repeat top / cover;
+        }
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            // border: 1px solid red;
+        }
+    }
+
+    &__content-right {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 50%;
+        height: 90%;
+        padding: 50px 100px;
+        background-color: #79c7fb;
+        color: #fff;
+
+        @include s.mq(){
+            width: 90%;
+            height: 50%;
+            padding: 100px 30px 50px;
+        }
+
+        @include s.mq(sm){
+            padding-top: 150px;
+        }
+
+        .Blog-ttl {
+            font-size: 5.5rem;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .Blog__txt-wrapper {
+            padding: 50px;
+
+            @include s.mq(){
+                padding: 30px;
+            }
+            
+
+
+            .Blog-txt {
+                font-size: 2.4rem;
+                line-height: 1.2;
+                margin-bottom: 50px;
+
+                @include s.mq(sm){
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+
+    }
+
+}

@@ -1,0 +1,64 @@
+@use '../breakpoint' as s;
+
+/* ------------- footer ----------------*/
+.footer {
+  // margin-top: 1px;
+  opacity: 0.7;
+  background-color: black;
+  color: #fff;
+  box-shadow: 0 -1px -1px 0 rgb(53, 53, 53);
+  padding: 8rem 0 3rem;
+
+  &__wrapper {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include s.mq(sm){
+      width: 90%;
+    }   
+
+    .logo {
+      border: 1px solid #fff;
+      z-index: 10;
+
+      &::before {
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+      }
+    }
+
+    .footer__list {
+      display: flex;
+      font-family: "Pacifico", cursive;
+
+      @include s.mq(sm){
+        display: block;
+        margin: 0 5rem;
+      }
+      .footer__item {
+        font-size: 2.0rem;
+        position: relative;
+        &:not(:last-child) {
+          margin-right: 3rem;
+
+          @include s.mq(sm){
+            margin-bottom: 2.0rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__copy-right {
+    // border: 1px solid #fff;
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    font-family: "Pacifico", cursive;
+  }
+}

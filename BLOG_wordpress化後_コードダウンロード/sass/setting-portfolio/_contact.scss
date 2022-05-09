@@ -1,0 +1,223 @@
+@use '../breakpoint' as s;
+
+/* ------------- contact ----------------*/
+.contact.section {
+  padding: 2rem 0 0;
+  font-size: 1.8rem;
+
+  &::before {
+    content: "";
+    display: block;
+    background-color: rgb(255, 232, 190);
+    opacity: 0.7;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.contact .section {
+  &__wrapper {
+    margin: 8rem auto 0;
+    padding: 0 8rem 10rem;
+
+    &_ttl {
+      position: relative;
+      text-align: center;
+      opacity: 0;
+      transform: translate(-20%, 0);
+      transition: 0.7s ease-out;
+
+      &.active {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    &_txt {
+      width: 90%;
+      padding: 3rem;
+      font-size: 1.8rem;
+      border-top: 0.2rem solid #333;
+      border-bottom: 0.2rem solid #333;
+      line-height: 1.7;
+      margin: 0 auto 5rem;
+      font-family: 'Boku2';
+      opacity: 0;
+      transform: translate(20%, 0);
+      transition: 0.7s ease-out;
+
+      &.active {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+
+      @include s.mq(sm){
+        width: 100%;
+      }
+    }
+    
+
+    &_content {
+      opacity: 0;
+      transform: translateY(5rem);
+      transition: 0.7s ease-out;
+      &.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+
+      &_inner { //
+        display: flex;
+        justify-content: space-around;
+
+        @include s.mq(sm){
+          display: block;
+        }
+      }
+      &_wrapper {
+        width: 45%;
+        margin-bottom: 4rem;
+
+        
+        @include s.mq(sm){
+          width: 100%;
+        }
+        
+        &_box {
+          // &:not(:last-child) {
+          .section__wrapper_content_wrapper_input {
+            margin-bottom: 2rem;
+          }
+          // }
+        }
+        &_ttl {
+          font-size: 2.4rem;
+          font-weight: bold;
+          margin: 1rem 0.8rem 0;
+          position: relative;
+
+          &_dec {
+            color: red;
+            position: absolute;
+          }
+
+          &.message {
+            margin-bottom: 0.8rem;
+          }
+        }
+
+        
+
+        &_input {
+          border-bottom: 0.3rem solid #333;
+          width: 100%;
+          padding: 0.8rem;
+          font-size: 1.8rem;
+
+          @include s.mq(sm){
+          }
+        }
+
+        .tel::-webkit-inner-spin-button,
+        .tel::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+          -moz-appearance: textfield;
+        }
+
+        &_textarea {
+          border: 0.3rem solid #333;
+          width: 100%;
+          height: calc(100% - 4.5rem);
+          font-size: 1.8rem;
+          padding: 0.8rem;
+          border-radius: 0.5rem;
+
+          @include s.mq(sm){
+            height: 150px;
+          }
+        }
+      }
+    }
+  }
+
+  
+}
+
+.contact {
+
+  .m-auto {
+    display: flex;
+  }
+
+  .form_submit-box {
+    margin: 0 auto;
+    position: relative;
+    width: 25rem;
+    height: 10rem;
+  
+  
+    &_inner {
+      width: 100%;
+      height: 5rem;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+    }
+  }
+}
+
+.error-msg {
+  color: red;
+  font-size: 1.2rem;
+}
+
+
+
+.section__wrapper_content_button {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 5rem;
+  font-weight: bold;
+  border: 0.3rem solid #333;
+  width: 25rem;
+  height: 5rem;
+  color: #333;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  &:hover {
+    color: #fff;
+  }
+
+}
+.button_email-img {
+  display: block;
+  height: 100%;
+  width: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+
+  &.before {
+    opacity: 1;
+  }
+
+  &.after {
+    opacity: 0;
+  }
+}
+
+
+
+

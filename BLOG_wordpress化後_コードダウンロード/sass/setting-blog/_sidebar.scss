@@ -1,0 +1,265 @@
+@use '../breakpoint' as s;
+
+
+/* ------------- sidebar ----------------*/
+.sidebar {
+  width: 30%;
+  border: 1px solid #d6d6d6;
+  background-color: #fff;
+  padding: 10px;
+
+  @include s.mq(sm){
+    width: 100%;
+  }
+
+  .sidebar-fixed {
+    position: sticky;
+    top: 5%;
+  }
+
+  & > div {
+    margin-bottom: 50px;
+  }
+
+  
+
+  &__ttl {
+    font-size: 2.0rem;
+    text-align: center;
+    padding: 5px;
+    border-bottom: 2px solid #333;
+    margin-bottom: 20px;
+
+    // @include s.mq(){
+    //   font-size: 2.rem;
+    // }
+  }
+
+
+  .category {
+    width: 100%;
+    padding: 5px;
+
+    & > ul {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      & > li {
+        width: 48%;
+        height: 30px;
+        background-color: #79c7fb;
+        color: #fff;
+        text-align: center;
+
+        
+  
+        &:nth-of-type(-n+2) {
+          margin-bottom: 10px;
+        }
+
+        & > a {
+          display: block;
+          width: 100%;
+          height: 100%;
+    
+          & > p {
+            font-size: 2.4rem;
+            line-height: 30px;
+
+            @include s.mq(){
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+
+    &-item {
+      width: 48%;
+      background-color: aqua;
+      color: #fff;
+      text-align: center;
+
+      &:nth-of-type(-n+2) {
+        margin-bottom: 10px;
+      }
+
+      & > img {
+        width: 30%;
+        aspect-ratio: 1/1;
+      }
+
+      & > p {
+        font-size: 2.0rem;
+      }
+    }
+  }
+
+  .profile {
+    width: 100%;
+    margin-bottom: 50px;
+
+    &-wrapper {
+
+      & > img {
+        width: 100px;
+        aspect-ratio: 1/1;
+        display: block;
+        margin: 0 auto 10px;
+      }
+
+      .profile-name {
+        text-align: center;
+        font-size: 2.0rem;
+        color: aqua;
+        margin-bottom: 20px;
+      }
+
+      & > p {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .ranking {
+
+    &-list {
+
+      & > li {
+        position: relative;
+  
+        & > span {
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translate(-50%, -50%);
+          width: 3.2rem;
+          height: 3.2rem;
+          font-weight: bold;
+          text-align: center;
+          line-height: 3.2rem;
+          font-size: 1.5rem;
+          // background-color: #79c7fb;
+          border-radius: 50%;
+          // border: 1px solid #333;
+
+          &.medal {
+            color: #333;
+          }
+
+          &.rank-in {
+            color: #fff;
+          }
+
+          & > img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            // border: 1px solid red;
+
+
+          }
+        }
+      }
+  
+    }
+  }
+  
+
+  // .new-article {
+  // }
+
+  // .connection-article {
+  // }
+
+  .list-sidebar {
+
+    & > p {
+      font-size: 1.2rem;
+      padding: 0 10px;
+    }
+
+    & > li {
+      border: 1px solid #d6d6d6;
+      border-radius: 5px;
+      width: 100%;
+      transition: all 0.4s;
+      position: relative;
+
+      &:hover {
+        box-shadow: 2px 2px 2px gray;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 2.0rem;
+      }
+
+      & > a {
+        width: 100%;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+
+        & > img {
+          width: 30%;
+          border-radius: 5px 0 0 5px;
+          aspect-ratio: 1/1;
+          object-fit: cover;
+        }
+  
+        & > div {
+          width: 70%;
+          border-radius: 0 5px 5p 0;
+          padding: 10px;
+          display: table;
+
+          & > div {
+            display: table-cell;
+            vertical-align: middle;
+
+            & > div {
+              display: flex;
+              justify-content: space-between;
+              font-size: 1.0rem;
+              
+    
+              & > span {
+                border-radius: 6px;
+                border: 1px solid #79c7fb;
+                background-color: #e1f3ff;
+                padding: 0.1rem;
+                line-height: 1.2rem;
+              }
+      
+              & > time {
+                position: relative;
+                padding: 0 0 0 1.2rem;
+
+                & > img {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  height: 1.0rem;
+                }
+              }
+            }
+    
+            & > h3 {
+              font-size: 1.2rem;
+              line-height: 1.5;
+              margin-bottom: 5px;
+            }
+          }
+  
+          
+        }
+      }
+    }
+  }
+
+
+}

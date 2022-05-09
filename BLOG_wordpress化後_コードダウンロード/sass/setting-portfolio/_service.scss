@@ -1,0 +1,731 @@
+@use '../breakpoint' as s;
+
+
+/* ------------- service ----------------*/
+.service.section {
+  position: relative;
+  // border: 1px solid #333;
+
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 20%;
+    aspect-ratio: 1/1;
+    background: url("../img/arrow-yellow.png") no-repeat center / cover;
+    // border: 1px solid #333;
+  }
+
+  &__wrapper {
+    padding: 10rem 0 0;
+
+    &_ttl {
+      margin-bottom: 5rem;
+    }
+    &_content {
+      .service-box {
+        // border: 1px solid #333;
+        width: 100%;
+        // border: 1px solid blue;
+        position: relative;
+        padding: 18rem 0;
+
+        @include s.mq(wp){
+          min-height: 100vh;
+          padding: 18rem 8rem;
+          // height: -webkit-fill-available;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          height: 100%;
+          z-index: -100;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        &.js-scroll-wp::before {
+          // margin-bottom: 100px;
+          opacity: 0.3;
+          background-color: #f0dbda;
+
+          // @include s.mq(wp){
+          // //   margin-bottom: 80px;
+          // }
+        }
+
+        &.js-scroll-skill {
+          padding-bottom: 300px;
+
+          &::before {
+            opacity: 0.3;
+            background-color: rgb(208, 208, 255);
+          }
+        }
+
+
+        &_service-ttl {
+          font-family: 'Pacifico', cursive;
+          font-size: 9rem;
+          font-weight: bold;
+          margin-bottom: 100px;
+          margin-left: 3rem;
+          padding-left: 11rem;
+          position: relative;
+          white-space: nowrap;
+          z-index: 2;
+          // border: 1px solid red;
+
+          @include s.mq(sm){
+            margin-left: 0;
+          }
+
+          .orange-check-L {
+            display: block;
+            position: absolute;
+            top: 30%;
+            left: 1%;
+            transform: translate(0, -50%);
+            width: 9rem;
+            height: 9rem;
+            z-index: 1;
+            background: url("../img/orange-check.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            transition: 0.7 ease-out;
+            opacity: 0;
+
+            &.active {
+              opacity: 1;
+            }
+          }
+
+
+          
+          &::after {
+            display: block;
+            // color: #d8d8d8;
+            color: #fff;
+            font-weight: bold;
+            font-size: 12.0rem;
+            opacity: 0.6;
+            position: absolute;
+            top: 0;
+            left: 11rem;
+            z-index: -1;
+            transform: translate(0, -50%);
+            // border: 1px solid #333;
+            text-shadow:1px 1px 0 #333, -1px -1px 0 #333,
+            -1px 1px 0 #333, 1px -1px 0 #333,
+            0px 1px 0 #333,  0-1px 0 #333,
+            -1px 0 0 #333, 1px 0 0 #333;
+          }
+
+          &::before {
+            content: "";
+            // border: 1px solid #333;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+            width: 9rem;
+            height: 9rem;
+            background: url("../img/square.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            // @include s.mq(sm){
+            //   width: 4.5rem;
+            //   height: 4.5rem;
+            // }
+          }
+
+          &.job::after {
+            content: "WEB production";
+
+            @include s.mq(){
+              content: "WEB\Aproduction";
+              white-space: pre;
+              font-size: 10.0rem;
+              top: -50%;
+              line-height: 0.9;
+            }
+
+            @include s.mq(sm){
+              font-size: 8.0rem;
+              line-height: 1.0;
+            }
+          }
+
+          &.skill::after {
+            content: "Skill";
+          }
+        }
+
+        .service-box_job-content-wrapper {
+          width: 100%;
+          padding: 0 10%;
+          // border: 1px solid blue;
+
+          @include s.mq(wp){
+            padding: 0;
+          }
+        }
+
+        
+        &_job-content {
+          /*job*/
+          position: relative;
+          aspect-ratio: 5/4;
+          width: 100%;
+          transform: translateY(-3rem);
+          opacity: 0;
+          transition: opacity 0.7s;
+          // border: 1px solid red;
+    
+          &.active {
+            transform: translateY(0);
+            opacity: 1;
+          }
+
+          @include s.mq(wp){
+            width: 440px;
+            height: 370px;
+          }
+
+
+
+          .job-table {
+            width: 100%;
+            height: 100%;
+            // border: 1px solid #333;
+
+            @include s.mq(wp){
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+
+            .job-tr {
+              // border: 1px solid #333;
+
+              .job-td {
+                position: relative;
+                // border: 1px solid #333;
+              }
+
+              .job-td:last-child {
+                width: 0;
+              }
+
+
+              &.job-detail {
+
+                .job-td {
+                  height: 45%;
+                }
+
+                &:first-child .arrow {
+                  position: absolute;
+                  bottom: 0;
+                  left: 50%;
+                  transform: translate(-50%, 0);
+                  border-top: 8rem solid #f0dbda;
+                  border-right: 4rem solid transparent;
+                  border-left: 4rem solid transparent;
+                }
+
+                &:last-child .arrow {
+                  position: absolute;
+                  top: 0;
+                  left: 50%;
+                  transform: translate(-50%, 0);
+                  border-bottom: 8rem solid #f0dbda;
+                  border-right: 4rem solid transparent;
+                  border-left: 4rem solid transparent;
+                }
+                
+                .job-detail-content {
+                  position: relative;
+                  // border: 1px solid #333;
+
+                }
+
+                &:last-child {
+                  text-align: end;
+
+                  .job-detail-content {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 100;
+                  }
+                }
+
+                .job-detail-content {
+                  width: 80%;
+                  aspect-ratio: 1/1;
+                  border-radius: 50%;
+                  background-color: #fff;
+                  margin: 0 auto;
+                  position: relative;
+
+
+                  &::before {
+                    content: "";
+                    display: block;
+                    width: 102%;
+                    height: 102%;
+                    border-radius: 50%;
+                    border: .2rem solid #333;
+                    position: absolute;
+                    left: 0.5rem;
+                    top: -1rem;
+                  }
+
+                  &::after {
+                    content: "";
+                    display: block;
+                    width: 102%;
+                    height: 102%;
+                    border-radius: 50%;
+                    border: .2rem solid #333;
+                    position: absolute;
+                    right: 0.5rem;
+                    top: -0.5rem;
+                  }
+
+                  &-wrapper {
+                    position: absolute;
+                    width: 100%;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    // border: 1px solid #333;
+
+                    &::before {
+                      content: "";
+                      display: block;
+                      width: 100%;
+                      aspect-ratio: 1/1;
+                      border-radius: 50%;
+                      background-color: #f0dbda;
+                      opacity: 0.4;
+                      position: absolute;
+                      left: 50%;
+                      top: 50%;
+                      transform: translate(-50%, -50%);
+                      z-index: -10;
+                    }
+
+                    .job-detail-ttl {
+                      font-size: 2rem;
+                      line-height: 2.0;
+                      font-weight: bold;
+                      padding: 0 2rem;
+                      border-bottom: .1rem solid #333;
+                      margin-bottom: 1rem;
+    
+                      .number {
+                        font-size: 2.4rem;
+                        padding: .3rem;
+                      }
+                    }
+    
+                    .job-detail-txt {
+                      padding: 0 2rem;
+                      font-size: 1.5rem;
+                      line-height: 1.7;
+                      font-family: 'Boku2', sans-serif;
+                    }
+                  }
+                }
+
+                &:last-child {
+                  .job-detail-content {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                  }
+                }
+
+              }
+
+              &.flow-content {
+
+                .job-td {
+                  width: 20%;
+                  height: 10%;
+                  position: relative;
+                  height: 3rem;
+
+                  .flow-item {
+                    display: inline-block;
+                    // background-color: #35a9dc;
+                    font-size: 2.4rem;
+                    position: absolute;
+                    line-height: 1.5;
+                    text-shadow: 1px 1px 1px #333;
+                  }
+
+                  &::before {
+                    content: "";
+                    display: block;
+                    height: .4rem;
+                    width: 100%;
+                    background-color: #f0dbda;
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    box-shadow: 2px 2px 4px #f0dbda;
+                  }
+
+
+                  &:first-child::after {
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    aspect-ratio: 1/1;
+                    background-color: #f0dbda;
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translate(-50%, -50%);
+                    border-radius: 50%;
+                    box-shadow: 2px 2px 4px #f0dbda;
+                  }
+
+                  &:last-child::after {
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    aspect-ratio: 1/1;
+                    background-color: #f0dbda;
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translate(50%, -50%);
+                    border-radius: 50%;
+                    box-shadow: 2px 2px 4px #f0dbda;
+                  }
+
+                  &:nth-child(2) span::after,&:nth-child(4) span::after  {
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    width: .2rem;
+                    background-color: #f0dbda;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translate(-50%, -100%);
+                  }
+
+                  &:nth-child(3) span::after, &:nth-child(5) .step4::after {
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    width: .2rem;
+                    background-color: #f0dbda;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translate(-50%, 100%);
+                  }
+
+                  &:nth-child(even) span {
+                    bottom: 0;
+                    left: 0;
+                    transform: translate(-50%, 100%);
+                  }
+
+                  &:nth-child(odd) span {
+                    top: 0;
+                    left: 0;
+                    transform: translate(-50%, -100%);
+                  }
+
+                  &:last-child .comp {
+                    bottom: 0;
+                    right: 0;
+                    transform: translate(50%, 100%);
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+
+        
+        &_skill-content {
+          /*skill*/
+          padding: 0 20%;
+          // border: 5px solid red;
+
+          @include s.mq(){
+            padding: 0 5%;
+          }
+
+          @include s.mq(wp){
+            height: 80%;
+            position: relative;
+            // border: 1px solid red;
+          }
+
+          &_list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            // border: 3px solid blue;
+
+            @include s.mq(wp){
+              flex-wrap: nowrap;
+              position: absolute;
+              top: 20%;
+              left: 0;
+            }
+          }
+
+          .js-slide-left {
+            transform: translateX(-3rem);
+
+            @include s.mq(wp){
+              transform: translateX(0);
+            }
+          }
+          
+          .js-slide-right {
+            transform: translateX(3rem);
+
+            @include s.mq(wp){
+              transform: translateX(0);
+            }
+          }
+          
+          .js-slide-top {
+            transform: translateY(-3rem);
+
+            @include s.mq(wp){
+              transform: translateY(0);
+            }
+          }
+          
+          .js-slide-bottom {
+            transform: translateY(3rem);
+
+            @include s.mq(wp){
+              transform: translateY(0);
+            }
+          }
+
+          &_item {
+            width: 27%;
+            aspect-ratio: 5/7;
+            border: 1px solid #333;
+            background-color: #f8f8f8;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 1px 2px 4px 0 #333;
+            text-align: center;
+            opacity: 0;
+            transition: 0.8s ease-out;
+            position: relative;
+            font-size: 1.5rem;
+
+            @include s.mq(wp){
+              // width: 115px;
+              width: 200px;
+            }
+
+            
+            &:not(:last-child) {
+
+              @include s.mq(wp){
+                margin-right: 30px;
+              }
+            }
+
+            &.active {
+              transform: translate(0, 0);
+              opacity: 1;
+            }
+
+            &:hover .service-box_skill-content_item_img-box_img {
+              transform: scale(1.1);
+            }
+
+            &:hover::before {
+              padding: 3rem;
+              text-align: left;
+              line-height: 2.0;
+              
+              @include s.mq(sm){
+                font-size: 4.5rem;
+              }
+            }
+
+            &:hover::after {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background-color: black;
+              opacity: 0.5;
+              width: 101%;
+              height: 100%;
+              color: #fff;
+              border-radius: 0 0 10px 10px;
+            }
+            
+            &:nth-child(-n+3) {
+              margin-bottom: 6rem;
+
+              @include s.mq(wp){
+                margin-bottom: 0;
+              }
+            }
+
+            &:nth-of-type(1) {
+              &:hover::before {
+                content: "文章構成の指示をコンピュータが理解できる形に表します";
+                color: #fff;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+              }
+
+              img {
+                background-color: #f1662d;
+              }
+            }
+
+            &:nth-of-type(2) {
+              &:hover::before {
+                content: "webページの各要素を装飾していきます";
+                color: #fff;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+              }
+
+              img {
+                background-color: #35a9dc;
+              }
+            }
+
+            &:nth-of-type(3) {
+              &:hover::before {
+                content: "webページに動きをつけていきます";
+                color: #fff;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+              }
+
+              img {
+                background-color: #fcd83c;
+              }
+            }
+
+            &:nth-of-type(4) {
+              &:hover::before {
+                content: "javascriptがよりコンパクトに開発されたもので、作業の効率化をはかります";
+                color: #fff;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+              }
+
+              img {
+                background-color: #0966ab;
+              }
+            }
+            
+            &:nth-of-type(5) {
+              &:hover::before {
+                content: "簡単に更新ができる動的サイトを構築できます";
+                color: #fff;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+              }
+
+              img {
+                background-color: #addee3;
+              }
+            }
+
+            &:nth-of-type(6) {
+              &:hover::before {
+                content: "異なるサイズの画面でも柔軟にサイトを表示させ見やしくします";
+                color: #fff;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+              }
+
+              img {
+                background-color: #f9f4ba;
+              }
+            }
+
+            &_img-box {
+              width: 100%;
+              height: 75%;
+              padding: 3rem 2rem 2rem 2rem;
+              background-color: #ececec;
+
+              .wrapper {
+                overflow: hidden;
+              }
+  
+              &_img {
+                width: 100%;
+                height: 100%;
+                transition: all 0.5s;
+                
+              }
+          }
+
+          &_ttl-box {
+            width: 100%;
+            height: 25%;
+            display: flex;
+
+            &_ttl {
+              font-weight: bold;
+              font-size: 2.5rem;
+              margin: auto;
+
+              @include s.mq(sm){
+                font-size: 4.5rem;
+              }
+            }
+          }
+
+          }
+        }
+
+      }
+    }
+  }
+}

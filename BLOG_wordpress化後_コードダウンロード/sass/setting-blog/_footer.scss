@@ -1,0 +1,118 @@
+@use '../breakpoint' as s;
+
+/* ------------- footer ----------------*/
+.blog-footer {
+  opacity: 0.9;
+  // background-color: #e1f3ff;
+  background-color: #79c7fb;
+  color: #333;
+  box-shadow: 0 -1px -1px 0 rgb(53, 53, 53);
+  padding: 60px 2% 3rem;
+
+  &__logo {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 60px;
+
+    & > a {
+
+      & > span {
+        font-size: 3.2rem;
+        color: #fff;
+      }
+
+      & > img {
+        height: 3.6rem;
+      }
+    } 
+  }
+
+  &__sitemap-left {
+    // border: 1px solid #333;
+    
+    
+    ul {
+      display: flex;
+
+      li {
+        margin-bottom: 1.2rem;
+        margin-right: 80px;
+
+        @include s.mq(sm){
+          width: 50%;
+          margin-right: 0;
+          text-align: center;
+        } 
+
+        .sub-menu {
+          display: block;
+
+          
+
+          & > li {
+            margin-right: 0;
+
+            @include s.mq(sm){
+              width: 100%;
+              text-align: center;
+            }
+
+            
+
+            &:first-child {
+              padding-top: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  &__sitemap-right {
+    // border: 1px solid #333;
+
+    li {
+
+      &:not(:last-child) {
+        margin-bottom: 1.2rem;
+      }
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+    font-size: 1.8rem;
+    font-weight: bold;
+
+    @include s.mq(sm){
+      display: block;
+      text-align: center;
+    } 
+
+    a {
+      transition: all 0.4s;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    @include s.mq(sm){
+      width: 90%;
+    }
+  }
+
+
+  &__copy-right {
+    // border: 1px solid #fff;
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+  }
+}
